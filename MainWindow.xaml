@@ -1,0 +1,32 @@
+﻿<Window x:Class="ZeneLejatszo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZeneLejatszo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0.004"/>
+                <GradientStop Color="#FFBD1F1F" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListBox x:Name="Lista" HorizontalAlignment="Left" Height="256" Margin="10,111,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button x:Name="Hoz" Content="Hozzáadás" HorizontalAlignment="Left" Height="22" Margin="10,372,0,0" VerticalAlignment="Top" Width="70" Click="Hoz_Click" Background="#FF23FF00"/>
+        <Button x:Name="elt" Content="Eltávolítás" HorizontalAlignment="Left" Height="22" Margin="120,372,0,0" VerticalAlignment="Top" Width="70" Click="elt_Click" Background="Red" Foreground="White"/>
+        <Slider x:Name="ZenPro" HorizontalAlignment="Left" Margin="195,111,0,0" VerticalAlignment="Top" Width="444" ValueChanged="ZenPro_ValueChanged"/>
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="195,201,0,0" VerticalAlignment="Top" Width="75" Click="Start_Click" Background="White"/>
+        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="275,201,0,0" VerticalAlignment="Top" Width="75" Click="Stop_Click" Background="White"/>
+        <Button x:Name="Pause" Content="Pause" HorizontalAlignment="Left" Margin="355,201,0,0" VerticalAlignment="Top" Width="75" Click="Pause_Click" Background="White"/>
+        <Button x:Name="Prev" Content="Previous" HorizontalAlignment="Left" Margin="435,201,0,0" VerticalAlignment="Top" Width="75" Click="Prev_Click" Background="White"/>
+        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Margin="515,201,0,0" VerticalAlignment="Top" Width="75" Click="Next_Click" Background="White"/>
+        <Label x:Name="Jelen" Content="Nincs zene kiválasztva." HorizontalAlignment="Left" Margin="220,270,0,0" VerticalAlignment="Top" Width="127"/>
+        <Label Content="Hangerő" HorizontalAlignment="Left" Margin="647,180,0,0" VerticalAlignment="Top" Width="100"/>
+        <Slider x:Name="Hangero" Value="0.5" Maximum="1" HorizontalAlignment="Left" Margin="624,203,0,0" VerticalAlignment="Top" Width="100" ValueChanged="VolumeSlider_ValueChanged" />
+        <Button x:Name="Save" Content="Lista mentése" HorizontalAlignment="Left" Margin="546,372,0,0" VerticalAlignment="Top" Width="93" Click="Save_Click" Foreground="Black"/>
+        <Button x:Name="Load" Content="Betöltés" HorizontalAlignment="Left" Margin="644,372,0,0" VerticalAlignment="Top" Width="93" Click="Load_Click" Foreground="Black"/>
+
+    </Grid>
+</Window>

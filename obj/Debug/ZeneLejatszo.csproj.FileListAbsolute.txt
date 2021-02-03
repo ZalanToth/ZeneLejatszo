@@ -1,0 +1,15 @@
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\bin\Debug\ZeneLejatszo.exe.config
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\bin\Debug\ZeneLejatszo.exe
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\bin\Debug\ZeneLejatszo.pdb
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.csprojAssemblyReference.cache
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\MainWindow.g.cs
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\App.g.cs
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo_MarkupCompile.cache
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo_MarkupCompile.lref
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\MainWindow.baml
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.g.resources
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.Properties.Resources.resources
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.csproj.GenerateResource.cache
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.csproj.CoreCompileInputs.cache
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.exe
+D:\Suliba\KompProg\WPF\Zenelejátszó\ZeneLejatszo\ZeneLejatszo\obj\Debug\ZeneLejatszo.pdb
