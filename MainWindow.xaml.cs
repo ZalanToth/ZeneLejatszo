@@ -54,6 +54,7 @@ namespace ZeneLejatszo
         public MainWindow()
         {
             InitializeComponent();
+            Closing += MainWindow_Closing;
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -63,18 +64,22 @@ namespace ZeneLejatszo
                 ZenPro.Minimum = 0;
                 ZenPro.Maximum = Convert.ToDouble(MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds);
                 ZenPro.Value = Convert.ToDouble(MediaPlayer.Position.TotalSeconds);
+                //Ez az ismétlés
                 if (MediaPlayer.Position.TotalSeconds == MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds)
                 {
                     MediaPlayer.Position = TimeSpan.FromSeconds(0);
                 }
             }
+
         }
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            if (Lista.SelectedItems.Count != 0)
-            {
+           if (Lista.SelectedItems.Count != 0)
+           {
                 MediaPlayer.Open(new Uri(ut[Lista.SelectedIndex]));
+                MediaPlayer.Play();
             }
+
                 MediaPlayer.Play();
 
                 
@@ -92,37 +97,56 @@ namespace ZeneLejatszo
 
         private void Prev_Click(object sender, RoutedEventArgs e)
         {
-            if (Lista.SelectedItems.Count != 0)
+            try
             {
-                MediaPlayer.Open(new Uri(ut[Lista.SelectedIndex-1]));
-                ZenPro.Minimum = 0;
-                ZenPro.Maximum = Convert.ToDouble(MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds);
-                ZenPro.Value = Convert.ToDouble(MediaPlayer.Position.TotalSeconds);
-            }
-            else
-            {
-                MediaPlayer.Stop();
-                MediaPlayer.Play();
-            }
-            MediaPlayer.Play();
-        }
-
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            if (Lista.SelectedItems.Count != 0)
-            {
-                if (Lista.SelectedIndex == Lista.Items.Count)
+                if (Lista.SelectedItems.Count != 0)
                 {
-                    MediaPlayer.Open(new Uri(ut[0]));
+                    MediaPlayer.Open(new Uri(ut[Lista.SelectedIndex - 1]));
                     ZenPro.Minimum = 0;
                     ZenPro.Maximum = Convert.ToDouble(MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds);
                     ZenPro.Value = Convert.ToDouble(MediaPlayer.Position.TotalSeconds);
                 }
                 else
-                    MediaPlayer.Open(new Uri(ut[Lista.SelectedIndex + 1]));
+                {
+                    MediaPlayer.Stop();
+                    MediaPlayer.Play();
+                }
+                MediaPlayer.Play();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("nyomja meg megegyszer léc kösz");
+                return;
 
             }
-            MediaPlayer.Play();
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Lista.SelectedItems.Count != 0)
+                {
+                    if (Lista.SelectedIndex == Lista.Items.Count)
+                    {
+                        MediaPlayer.Open(new Uri(ut[0]));
+                        ZenPro.Minimum = 0;
+                        ZenPro.Maximum = Convert.ToDouble(MediaPlayer.NaturalDuration.TimeSpan.TotalSeconds);
+                        ZenPro.Value = Convert.ToDouble(MediaPlayer.Position.TotalSeconds);
+                    }
+                    else
+                        MediaPlayer.Open(new Uri(ut[Lista.SelectedIndex + 1]));
+
+                }
+                MediaPlayer.Play();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("nem jou");
+                return;
+               
+            }
+
         }
 
         private void Hoz_Click(object sender, RoutedEventArgs e)
@@ -161,18 +185,26 @@ namespace ZeneLejatszo
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            var sfd = new SaveFileDialog();
-            sfd.CreatePrompt = false;
-            sfd.OverwritePrompt = true;
-            sfd.Filter = "Zenelista (*.zl) | *.zl";
-            sfd.ShowDialog();
-            sw = new StreamWriter(sfd.FileName);
-            for (int i = 0; i < ut.Count; i++)
+            try
             {
-                sw.WriteLine($"{ut[i]};{Lista.Items[i]}");
+                var sfd = new SaveFileDialog();
+                sfd.CreatePrompt = false;
+                sfd.OverwritePrompt = true;
+                sfd.Filter = "Zenelista (*.zl) | *.zl";
+                sfd.ShowDialog();
+                sw = new StreamWriter(sfd.FileName);
+                for (int i = 0; i < ut.Count; i++)
+                {
+                    sw.WriteLine($"{ut[i]};{Lista.Items[i]}");
 
+                }
+                sw.Close();
             }
-            sw.Close();
+            catch(Exception)
+            {
+                return;
+            }
+
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
@@ -183,13 +215,19 @@ namespace ZeneLejatszo
             StreamReader sr = new StreamReader(ofd.FileName);
             ut.Clear();
             Lista.Items.Clear();
-            while(!sr.EndOfStream)
+            while (!sr.EndOfStream)
             {
                 var zenek = sr.ReadLine().Split(';');
                 ut.Add(zenek[0]);
                 Lista.Items.Add(zenek[1]);
             }
             sr.Close();
+        }
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if (MessageBox.Show("Biztos ki akarsz lépni?", "", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+                Environment.Exit(0);
         }
     }
 }
